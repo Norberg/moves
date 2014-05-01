@@ -1,0 +1,20 @@
+{-# LANGUAGE OverloadedStrings #-}
+
+module ApiKey where
+
+import Network.OAuth.OAuth2
+import qualified Data.ByteString.Char8 as BS
+
+apiKey:: OAuth2
+apiKey = OAuth2 { oauthClientId = "<client-id>"
+                     , oauthClientSecret = "<client-secret>"
+                     , oauthCallback = Nothing
+                     , oauthOAuthorizeEndpoint = "https://api.moves-app.com/oauth/v1/authorize"
+                     , oauthAccessTokenEndpoint = "https://api.moves-app.com/oauth/v1/access_token"
+                     }
+
+token :: AccessToken
+token = AccessToken{
+ accessToken = "<access-token>"
+,refreshToken = Just "<refresh-token>"
+}

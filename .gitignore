@@ -1,0 +1,4 @@
+ApiKey.hs
+*.hi
+*.o
+*.swp
