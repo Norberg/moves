@@ -27,5 +27,11 @@ getActivitys = do
 scope :: QueryParams
 scope = [("scope", "activity location")]
 
+baseUrl :: BS.ByteString
+baseUrl = "https://api.moves-app.com/api/1.1/"
+
+get :: AccessToken -> BS.ByteString -> IO (OAuth2Result BL.ByteString)
+get token request = authGetBS token $ BS.append baseUrl request
+
 getActivitysLastWeek :: AccessToken -> IO (OAuth2Result BL.ByteString)
-getActivitysLastWeek token = authGetBS token "https://api.moves-app.com/api/v1/user/activities/daily?pastDays=7"
+getActivitysLastWeek token = get token "user/activities/daily?pastDays=1"
