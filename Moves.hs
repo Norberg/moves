@@ -80,10 +80,8 @@ data Entry = Entry {
 instance FromJSON Entry
 instance ToJSON Entry
 
-decodeJSON :: BL.ByteString -> [Entry]
-decodeJSON json = decoded
-    where (Right decoded) = eitherDecode json :: (Either String [Entry])
-          (Left e) = error e
+decodeJSON :: BL.ByteString -> (Either String [Entry])
+decodeJSON json = eitherDecode json
 
 filterPlace :: String -> [Segment] -> [Segment]
 filterPlace placeName segments = filter (f placeName) segments where

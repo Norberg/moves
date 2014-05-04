@@ -10,7 +10,7 @@ tests =
  [
     TestCase $ do
         json <- getJSON "test/json/user_places_daily?pastDays=3"
-        let decoded = Moves.decodeJSON json
+        let (Right decoded) = Moves.decodeJSON json
         assertEqual "date is" "20140429" (date $ head decoded)
         assertEqual "nr of entries are" 3 (length decoded)
         assertEqual "nr of segments are" 7 (length $ segments $ head decoded)
@@ -21,7 +21,7 @@ tests =
     ,
     TestCase $ do
         json <- getJSON "test/json/user_places_daily?pastDays=3"
-        let decoded = Moves.decodeJSON json
+        let (Right decoded) = Moves.decodeJSON json
         let work = filterPlace "Work" $ segments $ head decoded
         assertEqual "nr of work entries are" 2 (length work)
         let work1 = head work
@@ -39,7 +39,7 @@ tests =
     ,
     TestCase $ do
         json <- getJSON "test/json/user_places_daily?pastDays=3"
-        let decoded = Moves.decodeJSON json
+        let (Right decoded) = Moves.decodeJSON json
         let workSegments = map (filterPlaceOnEntry "Work") decoded
         assertEqual "nr of workSegments are" 3 (length workSegments)
         let totalDurationPerDay = map sumDurration workSegments 
