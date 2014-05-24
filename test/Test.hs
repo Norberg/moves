@@ -5,7 +5,7 @@ import Moves.Places as Places
 import Test.HUnit
 import qualified Data.ByteString.Lazy.Char8 as BL
 import Data.Time.Clock
-
+import System.Exit
 
 tests = 
  [
@@ -53,8 +53,17 @@ tests =
                                             "Thursday May 01: 0.00 hours"] formated
  ]
 
-main = runTestTT $ TestList tests
 
+main = do
+    result <- runTestTT $ TestList tests
+    let errs = errors result
+        fails = failures result
+    System.Exit.exitWith (codeGet errs fails)
 
+codeGet errs fails
+ | fails > 0       = ExitFailure 2
+ | errs > 0        = ExitFailure 1
+ | otherwise       = ExitSuccess
+ 
 getJSON :: FilePath -> IO BL.ByteString
 getJSON jsonFile = BL.readFile jsonFile    
