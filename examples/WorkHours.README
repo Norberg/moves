@@ -1,0 +1,6 @@
+WorkHours - Calculate nr of hours spent at work
+
+How to use:
+1. Create workplace.cfg file with the name of the workplace, place in
+   home directory. See workplace.cfg.sample for example.
+2. The application will list number of hours at that place for the last 10 days.

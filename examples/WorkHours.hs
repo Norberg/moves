@@ -2,6 +2,8 @@
 import Moves.ApiKey (token)
 import Moves.Core
 import Moves.Places
+import System.Directory
+import System.FilePath
 
 main = do
     workplace <- getWorkplace
@@ -16,5 +18,11 @@ main = do
     mapM_ putStrLn formated
 
 getWorkplace = do
-    fileContent <- readFile "workplace.cfg"
+    path <- getHomePath "workplace.cfg"
+    fileContent <- readFile path
     return $ filter (/= '\n') fileContent
+
+getHomePath :: String -> IO FilePath
+getHomePath s = do
+    homeDir <- getHomeDirectory
+    return (joinPath [homeDir, s])
