@@ -1,9 +1,11 @@
 {-# LANGUAGE OverloadedStrings, DeriveGeneric, TemplateHaskell #-}
+import System.Directory
+import System.FilePath
+
 import Moves.ApiKey (token)
 import Moves.Core
 import Moves.Places
-import System.Directory
-import System.FilePath
+import Moves.Utils
 
 main = do
     workplace <- getWorkplace

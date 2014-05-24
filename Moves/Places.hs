@@ -1,18 +1,28 @@
 {-# LANGUAGE OverloadedStrings, DeriveGeneric #-}
 
-module Moves.Places where
+module Moves.Places(
+    Location(..),
+    Place(..),
+    Segment(..),
+    Entry(..),
+    decode,
+    decodeOrExit,
+    filterPlace,
+    filterPlaceOnEntry,
+    decodeStartTime,
+    decodeEndTime,
+    getDuratation,
+    sumDurration
+) where
+
 import Prelude
-import qualified Data.ByteString.Char8 as BS
 import qualified Data.ByteString.Lazy.Char8 as BL
 import Data.Aeson(FromJSON, ToJSON, eitherDecode)
 import GHC.Generics
 import Data.Time.Clock
-import Data.Time
-import Data.Time.Format
-import System.Locale
-import Text.Printf
 
 import Moves.Core
+import Moves.Utils
 
 data Location = Location {
   lat :: Double
@@ -71,12 +81,6 @@ decodeStartTime seg = decodeJSONDateTime $ startTime seg
 decodeEndTime :: Segment -> UTCTime
 decodeEndTime seg = decodeJSONDateTime $ endTime seg
 
-decodeJSONDateTime :: String -> UTCTime
-decodeJSONDateTime date = readTime defaultTimeLocale "%Y%m%dT%H%M%S%z" date
-
-decodeJSONDate :: String -> UTCTime
-decodeJSONDate date = readTime defaultTimeLocale "%Y%m%d" date
-
 -- Returns duration of the segment in seconds
 getDuratation :: Segment -> Double
 getDuratation seg = realToFrac $ diffUTCTime endTime startTime where
@@ -87,9 +91,3 @@ getDuratation seg = realToFrac $ diffUTCTime endTime startTime where
 sumDurration :: [Segment] -> Double
 sumDurration segs = sum $ map getDuratation segs
 
-formatedDailyDurration :: (UTCTime, Double) -> String
-formatedDailyDurration (date, duration) = datefmt ++ ": " ++ hours ++ " hours"
-    where
-        datefmt = formatTime defaultTimeLocale "%A %B %d" date
-        hours = printf "%0.2f" (duration / 3600)
-     

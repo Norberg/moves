@@ -1,23 +1,18 @@
 {-# LANGUAGE OverloadedStrings, DeriveGeneric #-}
 
-module Moves.Summary where
-
-import Moves.Core
-import Moves.ApiKey (apiKey, token)
-import Network.OAuth.OAuth2
-import Network.OAuth.OAuth2.HttpClient
+module Moves.Summary(
+    Summary(..),
+    Entry(..),
+    decode,
+    decodeOrExit
+) where
 
 import Prelude
-import qualified Data.ByteString.Char8 as BS
 import qualified Data.ByteString.Lazy.Char8 as BL
 import Data.Aeson(FromJSON, ToJSON, eitherDecode)
 import GHC.Generics
-import Data.Time.Clock
-import Data.Time
-import Data.Time.Format
-import System.Locale
-import Text.Printf
 
+import Moves.Core
 
 data Summary = Summary {
   activity :: String

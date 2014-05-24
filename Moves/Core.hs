@@ -1,22 +1,18 @@
-{-# LANGUAGE OverloadedStrings, DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
 
-module Moves.Core where
-
-import Moves.ApiKey (apiKey, token)
-import Network.OAuth.OAuth2
-import Network.OAuth.OAuth2.HttpClient
+module Moves.Core(
+    createAccessToken,
+    get,
+    getActivitys,
+    getRightOrExit
+) where
 
 import Prelude
 import qualified Data.ByteString.Char8 as BS
 import qualified Data.ByteString.Lazy.Char8 as BL
-import Data.Aeson
-import GHC.Generics
-import Data.Time.Clock
-import Data.Time
-import Data.Time.Format
-import System.Locale
-import Text.Printf
+import Network.OAuth.OAuth2
 
+import Moves.ApiKey
 
 createAccessToken :: IO ()
 createAccessToken = do

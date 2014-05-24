@@ -1,12 +1,13 @@
-{-# LANGUAGE OverloadedStrings, DeriveGeneric, TemplateHaskell #-}
+{-# LANGUAGE OverloadedStrings #-}
 
-import Moves.Core
-import Moves.Places as Places
-import Moves.Summary as Summary
 import Test.HUnit
 import qualified Data.ByteString.Lazy.Char8 as BL
-import Data.Time.Clock
 import System.Exit
+
+import Moves.Core
+import Moves.Utils
+import Moves.Places as Places
+import Moves.Summary as Summary
 
 tests = 
  [
