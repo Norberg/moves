@@ -1,0 +1,130 @@
+[
+  {
+    "date": "20140512",
+    "summary": [
+      {
+        "activity": "walking",
+        "group": "walking",
+        "duration": 5186,
+        "distance": 5137,
+        "steps": 8650
+      },
+      {
+        "activity": "cycling",
+        "group": "cycling",
+        "duration": 1134,
+        "distance": 4433
+      },
+      {
+        "activity": "running",
+        "group": "running",
+        "duration": 3406,
+        "distance": 9208,
+        "steps": 8845
+      }
+    ],
+    "lastUpdate": "20140513T074334Z"
+  },
+  {
+    "date": "20140513",
+    "summary": [
+      {
+        "activity": "cycling",
+        "group": "cycling",
+        "duration": 1421,
+        "distance": 4372
+      },
+      {
+        "activity": "walking",
+        "group": "walking",
+        "duration": 3357,
+        "distance": 3915,
+        "steps": 5535
+      }
+    ],
+    "lastUpdate": "20140514T061850Z"
+  },
+  {
+    "date": "20140514",
+    "summary": [
+      {
+        "activity": "walking",
+        "group": "walking",
+        "duration": 5429,
+        "distance": 6625,
+        "steps": 9297
+      },
+      {
+        "activity": "cycling",
+        "group": "cycling",
+        "duration": 1141,
+        "distance": 4532
+      }
+    ],
+    "lastUpdate": "20140515T061811Z"
+  },
+  {
+    "date": "20140515",
+    "summary": [
+      {
+        "activity": "walking",
+        "group": "walking",
+        "duration": 2513,
+        "distance": 2390,
+        "steps": 4028
+      },
+      {
+        "activity": "cycling",
+        "group": "cycling",
+        "duration": 1375,
+        "distance": 4661
+      }
+    ],
+    "lastUpdate": "20140516T100358Z"
+  },
+  {
+    "date": "20140516",
+    "summary": [
+      {
+        "activity": "walking",
+        "group": "walking",
+        "duration": 3679,
+        "distance": 4782,
+        "steps": 6572
+      },
+      {
+        "activity": "cycling",
+        "group": "cycling",
+        "duration": 1338,
+        "distance": 4624
+      }
+    ],
+    "lastUpdate": "20140518T181424Z"
+  },
+  {
+    "date": "20140517",
+    "summary": [
+      {
+        "activity": "walking",
+        "group": "walking",
+        "duration": 395,
+        "distance": 524,
+        "steps": 698
+      }
+    ],
+    "lastUpdate": "20140518T181424Z"
+  },
+  {
+    "date": "20140518",
+    "summary": [
+      {
+        "activity": "walking",
+        "group": "walking",
+        "duration": 30,
+        "distance": 15,
+        "steps": 30
+      }
+    ],
+    "lastUpdate": "20140519T061410Z"
+  }
+]

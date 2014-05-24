@@ -43,3 +43,7 @@ baseUrl = "https://api.moves-app.com/api/1.1"
 
 get :: AccessToken -> BS.ByteString -> IO (OAuth2Result BL.ByteString)
 get token request = authGetBS token $ BS.append baseUrl request
+
+getRightOrExit :: Show a => Either a b -> b
+getRightOrExit (Right a) = a
+getRightOrExit (Left a) = error $ show a

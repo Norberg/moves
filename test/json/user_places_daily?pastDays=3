@@ -1,0 +1,248 @@
+[
+  {
+    "date": "20140429",
+    "segments": [
+      {
+        "type": "place",
+        "startTime": "20140428T212751+0200",
+        "endTime": "20140429T072754+0200",
+        "place": {
+          "id": 2336345,
+          "name": "Home",
+          "type": "home",
+          "location": {
+            "lat": 46.3492470698,
+            "lon": 12.43491
+          }
+        },
+        "lastUpdate": "20140429T083725Z"
+      },
+      {
+        "type": "place",
+        "startTime": "20140429T073914+0200",
+        "endTime": "20140429T112041+0200",
+        "place": {
+          "id": 23354352,
+          "name": "Work",
+          "type": "foursquare",
+          "foursquareId": "4b5d85fff964a520096029e3",
+          "location": {
+            "lat": 54.164455479826,
+            "lon": 15.593483448029
+          }
+        },
+        "lastUpdate": "20140429T113924Z"
+      },
+      {
+        "type": "place",
+        "startTime": "20140429T113030+0200",
+        "endTime": "20140429T115900+0200",
+        "place": {
+          "id": 546234625,
+          "type": "unknown",
+          "location": {
+            "lat": 54.2015994848,
+            "lon": 15.6254107392
+          }
+        },
+        "lastUpdate": "20140429T113924Z"
+      },
+      {
+        "type": "place",
+        "startTime": "20140429T121121+0200",
+        "endTime": "20140429T164439+0200",
+        "place": {
+          "id": 23354352,
+          "name": "Work",
+          "type": "foursquare",
+          "foursquareId": "4b5d85fff964a520096029e3",
+          "location": {
+            "lat": 54.164455479826,
+            "lon": 15.593483448029
+          }
+        },
+        "lastUpdate": "20140429T163159Z"
+      },
+      {
+        "type": "place",
+        "startTime": "20140429T165452+0200",
+        "endTime": "20140429T170914+0200",
+        "place": {
+          "id": 56696544,
+          "type": "unknown",
+          "location": {
+            "lat": 54.1618916697,
+            "lon": 15.5884718343
+          }
+        },
+        "lastUpdate": "20140429T163159Z"
+      },
+      {
+        "type": "place",
+        "startTime": "20140429T170915+0200",
+        "endTime": "20140429T171846+0200",
+        "place": {
+          "id": 56696545,
+          "type": "unknown",
+          "location": {
+            "lat": 54.1630868344,
+            "lon": 15.5854306543
+          }
+        },
+        "lastUpdate": "20140429T163159Z"
+      },
+      {
+        "type": "place",
+        "startTime": "20140429T174207+0200",
+        "endTime": "20140430T071040+0200",
+        "place": {
+          "id": 2336345,
+          "name": "Home",
+          "type": "home",
+          "location": {
+            "lat": 46.3492470698,
+            "lon": 12.43491
+          }
+        },
+        "lastUpdate": "20140430T061002Z"
+      }
+    ],
+    "lastUpdate": "20140430T061002Z"
+  },
+  {
+    "date": "20140430",
+    "segments": [
+      {
+        "type": "place",
+        "startTime": "20140429T174207+0200",
+        "endTime": "20140430T071040+0200",
+        "place": {
+          "id": 2336345,
+          "name": "Home",
+          "type": "home",
+          "location": {
+            "lat": 46.3492470698,
+            "lon": 12.43491
+          }
+        },
+        "lastUpdate": "20140430T061002Z"
+      },
+      {
+        "type": "place",
+        "startTime": "20140430T072233+0200",
+        "endTime": "20140430T112223+0200",
+        "place": {
+          "id": 23354352,
+          "name": "Work",
+          "type": "foursquare",
+          "foursquareId": "4b5d85fff964a520096029e3",
+          "location": {
+            "lat": 54.164455479826,
+            "lon": 15.593483448029
+          }
+        },
+        "lastUpdate": "20140430T134326Z"
+      },
+      {
+        "type": "place",
+        "startTime": "20140430T113030+0200",
+        "endTime": "20140430T115330+0200",
+        "place": {
+          "id": 69365635,
+          "name": "Food",
+          "type": "foursquare",
+          "foursquareId": "4b923b3ff2354a56589d344a3",
+          "location": {
+            "lat": 54.162735148248,
+            "lon": 15.587067604065
+          }
+        },
+        "lastUpdate": "20140430T134326Z"
+      },
+      {
+        "type": "place",
+        "startTime": "20140430T120239+0200",
+        "endTime": "20140430T154526+0200",
+        "place": {
+          "id": 23354352,
+          "name": "Work",
+          "type": "foursquare",
+          "foursquareId": "4b5d85fff964a520096029e3",
+          "location": {
+            "lat": 54.164455479826,
+            "lon": 15.593483448029
+          }
+        },
+        "lastUpdate": "20140430T152110Z"
+      },
+      {
+        "type": "place",
+        "startTime": "20140430T155420+0200",
+        "endTime": "20140430T172712+0200",
+        "place": {
+          "id": 2336345,
+          "name": "Home",
+          "type": "home",
+          "location": {
+            "lat": 46.3492470698,
+            "lon": 12.43491
+          }
+        },
+        "lastUpdate": "20140430T164810Z"
+      },
+      {
+        "type": "place",
+        "startTime": "20140430T174254+0200",
+        "endTime": "20140430T190019+0200",
+        "place": {
+          "id": 54596227,
+          "name": "Training",
+          "type": "foursquare",
+          "foursquareId": "4b69a404f964a520ddaa2be3",
+          "location": {
+            "lat": 14.338232511107,
+            "lon": 35.454239971341
+          }
+        },
+        "lastUpdate": "20140430T183109Z"
+      },
+      {
+        "type": "place",
+        "startTime": "20140430T191759+0200",
+        "endTime": "20140501T140012+0200",
+        "place": {
+          "id": 2336345,
+          "name": "Home",
+          "type": "home",
+          "location": {
+            "lat": 46.3492470698,
+            "lon": 12.43491
+          }
+        },
+        "lastUpdate": "20140501T120155Z"
+      }
+    ],
+    "lastUpdate": "20140501T120155Z"
+  },
+  {
+    "date": "20140501",
+    "segments": [
+      {
+        "type": "place",
+        "startTime": "20140430T191759+0200",
+        "endTime": "20140501T140012+0200",
+        "place": {
+          "id": 2336345,
+          "name": "Home",
+          "type": "home",
+          "location": {
+            "lat": 46.3492470698,
+            "lon": 12.43491
+          }
+        },
+        "lastUpdate": "20140501T120155Z"
+      }
+    ],
+    "lastUpdate": "20140501T120155Z"
+  }
+]

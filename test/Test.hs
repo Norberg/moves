@@ -2,6 +2,7 @@
 
 import Moves.Core
 import Moves.Places as Places
+import Moves.Summary as Summary
 import Test.HUnit
 import qualified Data.ByteString.Lazy.Char8 as BL
 import Data.Time.Clock
@@ -11,18 +12,19 @@ tests =
  [
     TestCase $ do
         json <- getJSON "test/json/user_places_daily?pastDays=3"
-        let (Right decoded) = Places.decode json
-        assertEqual "date is" "20140429" (date $ head decoded)
+        let either = Places.decode json
+        let decoded = getRightOrExit either
+        assertEqual "date is" "20140429" (Places.date $ head decoded)
         assertEqual "nr of entries are" 3 (length decoded)
         assertEqual "nr of segments are" 7 (length $ segments $ head decoded)
-        let sTime = startTime $ head $ segments $ head decoded
+        let sTime = Places.startTime $ head $ segments $ head decoded
         assertEqual "start time is" "20140428T212751+0200" (sTime)
-        let placeName = name $ place $  head $ segments $ head decoded
+        let placeName = Places.name $ Places.place $  head $ segments $ head decoded
         assertEqual "placeName is" (Just "Home") (placeName)
     ,
     TestCase $ do
         json <- getJSON "test/json/user_places_daily?pastDays=3"
-        let (Right decoded) = Places.decode json
+        let decoded = Places.decodeOrExit json
         let work = filterPlace "Work" $ segments $ head decoded
         assertEqual "nr of work entries are" 2 (length work)
         let work1 = head work
@@ -40,18 +42,34 @@ tests =
     ,
     TestCase $ do
         json <- getJSON "test/json/user_places_daily?pastDays=3"
-        let (Right decoded) = Places.decode json
+        let decoded = Places.decodeOrExit json
         let workSegments = map (filterPlaceOnEntry "Work") decoded
         assertEqual "nr of workSegments are" 3 (length workSegments)
         let totalDurationPerDay = map sumDurration workSegments 
-        let dates = map (decodeJSONDate . date) decoded
+        let dates = map (decodeJSONDate . Places.date) decoded
         let ziped = zip dates totalDurationPerDay
         let formated = map formatedDailyDurration ziped
         assertEqual "daily summary is " [29685.0,27757.0,0.0] totalDurationPerDay
         assertEqual "formated summary is " ["Tuesday April 29: 8.25 hours"
                                            ,"Wednesday April 30: 7.71 hours",
                                             "Thursday May 01: 0.00 hours"] formated
- ]
+    ,
+    TestCase $ do
+        json <- getJSON "test/json/user_summary_daily_2014W20"
+        let decoded = Summary.decodeOrExit json
+        assertEqual "nr of entries are" 7 (length decoded)
+        let lastEntry = last decoded
+        let expectedEntry = Summary.Entry{ Summary.date = "20140518"
+                                            ,summary = [
+                                                Summary {activity = "walking"
+                                                , group = "walking"
+                                                , duration = 30
+                                                , distance = 15,
+                                                 steps = Just 30}]
+                                            , Summary.lastUpdate = "20140519T061410Z"}
+
+        assertEqual "verify that last entry is " expectedEntry lastEntry
+    ]
 
 
 main = do

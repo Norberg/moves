@@ -17,7 +17,7 @@ build-type:          Simple
 cabal-version:       >=1.10
 
 library
-  exposed-modules:     Moves.ApiKey Moves.Core Moves.Places
+  exposed-modules:     Moves.ApiKey Moves.Core Moves.Places Moves.Summary
   other-extensions:    FlexibleContexts, OverloadedStrings, TemplateHaskell
   build-depends:       base >=4.6 && <4.7,
                        hoauth2 >=0.3 && <0.4,
