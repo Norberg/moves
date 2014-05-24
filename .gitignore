@@ -3,3 +3,4 @@ Moves/ApiKey.hs
 *.hi
 *.o
 *.swp
+dist
