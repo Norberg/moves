@@ -1,4 +1,4 @@
 while true; do
-	make && make run-test
+	time cabal test
 	inotifywait -e modify -r  . --exclude '(.pyc|.swp|.png)'
 done

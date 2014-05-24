@@ -17,9 +17,82 @@ build-type:          Simple
 cabal-version:       >=1.10
 
 library
-  exposed-modules:     Moves, GetActivitys, ApiKey, CreateAccessToken
-  -- other-modules:       
+  exposed-modules:     Moves.ApiKey Moves.Core Moves.Places
   other-extensions:    FlexibleContexts, OverloadedStrings, TemplateHaskell
-  build-depends:       base >=4.6 && <4.7, hoauth2 >=0.3 && <0.4, aeson >=0.7 && <0.8, bytestring >=0.10 && <0.11, text >=0.11 && <0.12
-  -- hs-source-dirs:      
+  build-depends:       base >=4.6 && <4.7,
+                       hoauth2 >=0.3 && <0.4,
+                       aeson >=0.7 && <0.8,
+                       bytestring >=0.10 && <0.11,
+                       text >=0.11 && <0.12,
+                       old-locale,
+                       time
+  default-language:    Haskell2010
+
+executable WorkHours
+  main-is: WorkHours.hs
+  Hs-source-dirs: examples
+  build-depends:       moves,
+                       base >=4.6 && <4.7,
+                       hoauth2 >=0.3 && <0.4,
+                       aeson >=0.7 && <0.8,
+                       bytestring >=0.10 && <0.11,
+                       text >=0.11 && <0.12,
+                       old-locale,
+                       time,
+                       directory,
+                       filepath
+  default-language:    Haskell2010
+
+executable MovesGetActivitys
+  main-is: GetActivitys.hs
+  Hs-source-dirs: examples
+  build-depends:       moves,
+                       base >=4.6 && <4.7,
+                       hoauth2 >=0.3 && <0.4,
+                       aeson >=0.7 && <0.8,
+                       bytestring >=0.10 && <0.11,
+                       text >=0.11 && <0.12,
+                       old-locale,
+                       time
+  default-language:    Haskell2010
+
+executable MovesGet
+  main-is: MovesGet.hs
+  Hs-source-dirs: examples
+  build-depends:       moves,
+                       base >=4.6 && <4.7,
+                       hoauth2 >=0.3 && <0.4,
+                       aeson >=0.7 && <0.8,
+                       bytestring >=0.10 && <0.11,
+                       text >=0.11 && <0.12,
+                       old-locale,
+                       time
+  default-language:    Haskell2010
+
+executable MovesCreateAccessToken
+  main-is: CreateAccessToken.hs
+  Hs-source-dirs: tools
+  build-depends:       moves,
+                       base >=4.6 && <4.7,
+                       hoauth2 >=0.3 && <0.4,
+                       aeson >=0.7 && <0.8,
+                       bytestring >=0.10 && <0.11,
+                       text >=0.11 && <0.12,
+                       old-locale,
+                       time
+  default-language:    Haskell2010
+
+Test-Suite test-Moves
+  type:       exitcode-stdio-1.0
+  main-is:    Test.hs
+  Hs-source-dirs: test
+  build-depends:       moves,
+                       base >=4.6 && <4.7,
+                       hoauth2 >=0.3 && <0.4,
+                       aeson >=0.7 && <0.8,
+                       bytestring >=0.10 && <0.11,
+                       text >=0.11 && <0.12,
+                       old-locale,
+                       time,
+                       HUnit
   default-language:    Haskell2010
