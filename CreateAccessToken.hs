@@ -1,4 +1,4 @@
-import Moves
+import Moves.Core
 
 
-main = Moves.createAccessToken
+main = createAccessToken

@@ -1,4 +1,5 @@
-import Moves
+import Moves.Core
 
 
-main = Moves.getActivitys
+
+main = getActivitys

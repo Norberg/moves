@@ -1,6 +1,7 @@
 {-# LANGUAGE OverloadedStrings, DeriveGeneric, TemplateHaskell #-}
 
-import Moves
+import Moves.Core
+import Moves.Places as Places
 import Test.HUnit
 import qualified Data.ByteString.Lazy.Char8 as BL
 import Data.Time.Clock
@@ -10,7 +11,7 @@ tests =
  [
     TestCase $ do
         json <- getJSON "test/json/user_places_daily?pastDays=3"
-        let (Right decoded) = Moves.decodeJSON json
+        let (Right decoded) = Places.decode json
         assertEqual "date is" "20140429" (date $ head decoded)
         assertEqual "nr of entries are" 3 (length decoded)
         assertEqual "nr of segments are" 7 (length $ segments $ head decoded)
@@ -21,7 +22,7 @@ tests =
     ,
     TestCase $ do
         json <- getJSON "test/json/user_places_daily?pastDays=3"
-        let (Right decoded) = Moves.decodeJSON json
+        let (Right decoded) = Places.decode json
         let work = filterPlace "Work" $ segments $ head decoded
         assertEqual "nr of work entries are" 2 (length work)
         let work1 = head work
@@ -39,7 +40,7 @@ tests =
     ,
     TestCase $ do
         json <- getJSON "test/json/user_places_daily?pastDays=3"
-        let (Right decoded) = Moves.decodeJSON json
+        let (Right decoded) = Places.decode json
         let workSegments = map (filterPlaceOnEntry "Work") decoded
         assertEqual "nr of workSegments are" 3 (length workSegments)
         let totalDurationPerDay = map sumDurration workSegments 
@@ -50,7 +51,6 @@ tests =
         assertEqual "formated summary is " ["Tuesday April 29: 8.25 hours"
                                            ,"Wednesday April 30: 7.71 hours",
                                             "Thursday May 01: 0.00 hours"] formated
-    
  ]
 
 main = runTestTT $ TestList tests

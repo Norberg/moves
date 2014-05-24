@@ -1,10 +1,6 @@
 {-# LANGUAGE OverloadedStrings, DeriveGeneric #-}
 
-module Moves where
-
-import ApiKey (apiKey, token)
-import Network.OAuth.OAuth2
-import Network.OAuth.OAuth2.HttpClient
+module Moves.Places where
 
 import Prelude
 import qualified Data.ByteString.Char8 as BS
@@ -16,32 +12,6 @@ import Data.Time
 import Data.Time.Format
 import System.Locale
 import Text.Printf
-
-createAccessToken :: IO ()
-createAccessToken = do
-    print $ authorizationUrl apiKey `appendQueryParam` scope
-    putStrLn "visit the url and paste code here: "
-    code <- fmap BS.pack getLine
-    let (url, body) = accessTokenUrl apiKey code
-    (Right newToken) <- doJSONPostRequest url body
-    print $ newToken
-    getActivitysLastWeek newToken >>= print
-
-getActivitys :: IO ()
-getActivitys = do
-    getActivitysLastWeek token >>= print
-
-scope :: QueryParams
-scope = [("scope", "activity location")]
-
-baseUrl :: BS.ByteString
-baseUrl = "https://api.moves-app.com/api/1.1"
-
-get :: AccessToken -> BS.ByteString -> IO (OAuth2Result BL.ByteString)
-get token request = authGetBS token $ BS.append baseUrl request
-
-getActivitysLastWeek :: AccessToken -> IO (OAuth2Result BL.ByteString)
-getActivitysLastWeek token = get token "/user/activities/daily?pastDays=7"
 
 
 data Location = Location {
@@ -69,6 +39,7 @@ data Segment = Segment {
 , place :: Place
 , lastUpdate :: String
 } deriving (Show, Generic)
+
 instance FromJSON Segment
 instance ToJSON Segment
 
@@ -80,8 +51,8 @@ data Entry = Entry {
 instance FromJSON Entry
 instance ToJSON Entry
 
-decodeJSON :: BL.ByteString -> (Either String [Entry])
-decodeJSON json = eitherDecode json
+decode :: BL.ByteString -> (Either String [Entry])
+decode json = eitherDecode json
 
 filterPlace :: String -> [Segment] -> [Segment]
 filterPlace placeName segments = filter (f placeName) segments where

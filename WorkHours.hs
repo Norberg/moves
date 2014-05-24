@@ -1,11 +1,12 @@
 {-# LANGUAGE OverloadedStrings, DeriveGeneric, TemplateHaskell #-}
-import Moves
-import ApiKey (token)
+import Moves.ApiKey (token)
+import Moves.Core
+import Moves.Places
 
 main = do
     workplace <- getWorkplace
     (Right json) <- get token "/user/places/daily?pastDays=10"
-    let decodeResult = decodeJSON json
+    let decodeResult = decode json
     let (Right activities) = decodeResult
     let workSegments = map (filterPlaceOnEntry workplace) activities
     let totalDurationPerDay = map sumDurration workSegments 
