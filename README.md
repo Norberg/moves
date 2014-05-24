@@ -15,3 +15,12 @@ How to use the library
 * cabal install -- Rebuild the code to use the new AccessToken
 * MovesGet "/user/activities/daily?pastDays=3" -- use MovesGet to test the api
 * See example program in example/ to see how to use the lib
+
+Consult the [API documentation](https://dev.moves-app.com/docs/api) for the methods supported.
+
+Disclaimer
+----------
+
+This library uses data from Moves but is not endorsed or certified by Moves.
+Moves is a trademark of ProtoGeo Oy.
+
