@@ -19,26 +19,28 @@ cabal-version:       >=1.10
 library
   exposed-modules:     Moves.ApiKey Moves.Core Moves.Utils Moves.Places Moves.Summary
   other-extensions:    FlexibleContexts, OverloadedStrings, TemplateHaskell
-  build-depends:       base >=4.6 && <4.7,
-                       hoauth2 >=0.3 && <0.4,
+  build-depends:       base >=4 && < 5,
+                       hoauth2 >=0.3 && <= 0.3.6,
                        aeson >=0.7 && <0.8,
-                       bytestring >=0.10 && <0.11,
-                       text >=0.11 && <0.12,
+                       bytestring >=0.10,
+                       text >=0.11,
                        old-locale,
-                       time
+                       time,
+                       ghc-prim
   default-language:    Haskell2010
 
 executable WorkHours
   main-is: WorkHours.hs
   Hs-source-dirs: examples
   build-depends:       moves,
-                       base >=4.6 && <4.7,
-                       hoauth2 >=0.3 && <0.4,
+                       base >=4 && < 5,
+                       hoauth2 >=0.3 && <=0.3.6,
                        aeson >=0.7 && <0.8,
-                       bytestring >=0.10 && <0.11,
-                       text >=0.11 && <0.12,
+                       bytestring >=0.10,
+                       text >=0.11,
                        old-locale,
                        time,
+                       ghc-prim,
                        directory,
                        filepath
   default-language:    Haskell2010
@@ -47,39 +49,42 @@ executable MovesGetActivitys
   main-is: GetActivitys.hs
   Hs-source-dirs: examples
   build-depends:       moves,
-                       base >=4.6 && <4.7,
-                       hoauth2 >=0.3 && <0.4,
+                       base >=4 && < 5,
+                       hoauth2 >=0.3 && <=0.3.6,
                        aeson >=0.7 && <0.8,
-                       bytestring >=0.10 && <0.11,
-                       text >=0.11 && <0.12,
+                       bytestring >=0.10,
+                       text >=0.11,
                        old-locale,
-                       time
+                       time,
+                       ghc-prim
   default-language:    Haskell2010
 
 executable MovesGet
   main-is: MovesGet.hs
   Hs-source-dirs: examples
   build-depends:       moves,
-                       base >=4.6 && <4.7,
-                       hoauth2 >=0.3 && <0.4,
+                       base >=4 && < 5,
+                       hoauth2 >=0.3 && <=0.3.6,
                        aeson >=0.7 && <0.8,
-                       bytestring >=0.10 && <0.11,
-                       text >=0.11 && <0.12,
+                       bytestring >=0.10,
+                       text >=0.11,
                        old-locale,
-                       time
+                       time,
+                       ghc-prim
   default-language:    Haskell2010
 
 executable MovesCreateAccessToken
   main-is: CreateAccessToken.hs
   Hs-source-dirs: tools
   build-depends:       moves,
-                       base >=4.6 && <4.7,
-                       hoauth2 >=0.3 && <0.4,
+                       base >=4 && < 5,
+                       hoauth2 >=0.3 && <=0.3.6,
                        aeson >=0.7 && <0.8,
-                       bytestring >=0.10 && <0.11,
-                       text >=0.11 && <0.12,
+                       bytestring >=0.10,
+                       text >=0.11,
                        old-locale,
-                       time
+                       time,
+                       ghc-prim
   default-language:    Haskell2010
 
 Test-Suite test-Moves
@@ -87,12 +92,13 @@ Test-Suite test-Moves
   main-is:    Test.hs
   Hs-source-dirs: test
   build-depends:       moves,
-                       base >=4.6 && <4.7,
-                       hoauth2 >=0.3 && <0.4,
+                       base >=4 && < 5,
+                       hoauth2 >=0.3 && <=0.3.6,
                        aeson >=0.7 && <0.8,
-                       bytestring >=0.10 && <0.11,
-                       text >=0.11 && <0.12,
+                       bytestring >=0.10,
+                       text >=0.11,
                        old-locale,
                        time,
+                       ghc-prim,
                        HUnit
   default-language:    Haskell2010

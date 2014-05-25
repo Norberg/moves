@@ -1,0 +1,11 @@
+language: haskell
+ghc:
+  - 7.8
+  - 7.6
+  - 7.4
+before_install:
+  mv Moves/ApiKey.hs.sample Moves/ApiKey.hs
+notifications:
+  email:
+    on_success: change
+    on_failure: change
