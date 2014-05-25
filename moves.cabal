@@ -20,12 +20,13 @@ library
   exposed-modules:     Moves.ApiKey Moves.Core Moves.Utils Moves.Places Moves.Summary
   other-extensions:    FlexibleContexts, OverloadedStrings, TemplateHaskell
   build-depends:       base >=4 && < 5,
-                       hoauth2 >=0.3 && <0.4,
+                       hoauth2 >=0.3 && <0.3.6,
                        aeson >=0.7 && <0.8,
                        bytestring >=0.10 && <0.11,
                        text >=0.11 && <0.12,
                        old-locale,
-                       time
+                       time,
+                       ghc-prim
   default-language:    Haskell2010
 
 executable WorkHours
@@ -33,12 +34,13 @@ executable WorkHours
   Hs-source-dirs: examples
   build-depends:       moves,
                        base >=4 && < 5,
-                       hoauth2 >=0.3 && <0.4,
+                       hoauth2 >=0.3 && <=0.3.6,
                        aeson >=0.7 && <0.8,
                        bytestring >=0.10 && <0.11,
                        text >=0.11 && <0.12,
                        old-locale,
                        time,
+                       ghc-prim,
                        directory,
                        filepath
   default-language:    Haskell2010
@@ -48,12 +50,13 @@ executable MovesGetActivitys
   Hs-source-dirs: examples
   build-depends:       moves,
                        base >=4 && < 5,
-                       hoauth2 >=0.3 && <0.4,
+                       hoauth2 >=0.3 && <=0.3.6,
                        aeson >=0.7 && <0.8,
                        bytestring >=0.10 && <0.11,
                        text >=0.11 && <0.12,
                        old-locale,
-                       time
+                       time,
+                       ghc-prim
   default-language:    Haskell2010
 
 executable MovesGet
@@ -61,12 +64,13 @@ executable MovesGet
   Hs-source-dirs: examples
   build-depends:       moves,
                        base >=4 && < 5,
-                       hoauth2 >=0.3 && <0.4,
+                       hoauth2 >=0.3 && <=0.3.6,
                        aeson >=0.7 && <0.8,
                        bytestring >=0.10 && <0.11,
                        text >=0.11 && <0.12,
                        old-locale,
-                       time
+                       time,
+                       ghc-prim
   default-language:    Haskell2010
 
 executable MovesCreateAccessToken
@@ -74,12 +78,13 @@ executable MovesCreateAccessToken
   Hs-source-dirs: tools
   build-depends:       moves,
                        base >=4 && < 5,
-                       hoauth2 >=0.3 && <0.4,
+                       hoauth2 >=0.3 && <=0.3.6,
                        aeson >=0.7 && <0.8,
                        bytestring >=0.10 && <0.11,
                        text >=0.11 && <0.12,
                        old-locale,
-                       time
+                       time,
+                       ghc-prim
   default-language:    Haskell2010
 
 Test-Suite test-Moves
@@ -88,11 +93,12 @@ Test-Suite test-Moves
   Hs-source-dirs: test
   build-depends:       moves,
                        base >=4 && < 5,
-                       hoauth2 >=0.3 && <0.4,
+                       hoauth2 >=0.3 && <=0.3.6,
                        aeson >=0.7 && <0.8,
                        bytestring >=0.10 && <0.11,
                        text >=0.11 && <0.12,
                        old-locale,
                        time,
+                       ghc-prim,
                        HUnit
   default-language:    Haskell2010
